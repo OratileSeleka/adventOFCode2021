@@ -27,15 +27,9 @@ class SonarSweepp {
             if(windowIndexEnd < input.size) {
                 input.map { it.toInt() }.subList(windowIndexStart, (windowIndexEnd++)+ 1).sum().let {
                     prev = if(windowIndexStart++ == 0) {
-                        println("$it n/a")
                         it
                     } else {
-                        if(it > prev) {
-                            println("$it increase")
-                            total++
-                        } else {
-                            println("$it decrease")
-                        }
+                        if(it > prev) { total++ }
                         it
                     }
                 }
