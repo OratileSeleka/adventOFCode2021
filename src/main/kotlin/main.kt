@@ -1,6 +1,7 @@
-import day1.SonarSweepp
+import day1.SonarSweeps
+import day2.Dive
 
 fun main(args: Array<String>) {
-    val sonarSweep = SonarSweepp()
-    println("Total is: ${sonarSweep.numberOfTimesDepthMeasurementIncreasesWithWindows()}")
+    val dive = Dive()
+    println("Total is: ${dive.calculateProductOFDepthAndPositionWithAim()}")
 }

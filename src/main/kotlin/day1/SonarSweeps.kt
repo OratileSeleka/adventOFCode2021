@@ -2,8 +2,8 @@ package day1
 
 import util.FileReader
 
-class SonarSweepp {
-    private val input by lazy { FileReader.readFile(this.javaClass, "Input.txt") }
+class SonarSweeps {
+    private val input by lazy { FileReader.readFile(this.javaClass.`package`.name) }
     fun numberOfTimesDepthMeasurementIncreases() : Int {
         var total = 0
         var prev = -1
@@ -25,12 +25,12 @@ class SonarSweepp {
         var windowIndexEnd = 2
         while (true) {
             if(windowIndexEnd < input.size) {
-                input.map { it.toInt() }.subList(windowIndexStart, (windowIndexEnd++)+ 1).sum().let {
+                input.map { it.toInt() }.subList(windowIndexStart, (windowIndexEnd++) + 1).sum().let { sum ->
                     prev = if(windowIndexStart++ == 0) {
-                        it
+                        sum
                     } else {
-                        if(it > prev) { total++ }
-                        it
+                        if(sum > prev) { total++ }
+                        sum
                     }
                 }
             } else {
