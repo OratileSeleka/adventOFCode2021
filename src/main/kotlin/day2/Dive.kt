@@ -1,9 +1,8 @@
 package day2
 
-import util.FileReader
+import util.InputFileReader
 
-class Dive {
-    private val input by lazy { FileReader.readFile(this.javaClass.`package`.name) }
+class Dive : InputFileReader {
     fun calculateProductOFDepthAndPosition(): Int {
         var horizontalPosition = 0
         var depth = 0

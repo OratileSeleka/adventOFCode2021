@@ -1,9 +1,8 @@
 package day1
 
-import util.FileReader
+import util.InputFileReader
 
-class SonarSweeps {
-    private val input by lazy { FileReader.readFile(this.javaClass.`package`.name) }
+class SonarSweeps: InputFileReader {
     fun numberOfTimesDepthMeasurementIncreases() : Int {
         var total = 0
         var prev = -1
