@@ -36,25 +36,20 @@ class BinaryDiagnostic : InputFileReader {
             val numberOf0Bits = list.map { it[position] }.count { it == '0' }
             val numberOf1Bits = list.size - numberOf0Bits
 
-            when {
-                numberOf0Bits == numberOf1Bits -> {
-                    filterListByRatingType(list.filter { it[position] == if (ratingType == OXYGEN_GENERATOR_RATING) '1' else '0' },
-                        position + 1,
-                        ratingType)
-                }
-                numberOf0Bits > numberOf1Bits -> {
-                    filterListByRatingType(
-                        list.filter { it[position] == if (ratingType == OXYGEN_GENERATOR_RATING) '0' else '1' },
-                        position + 1, ratingType
-                    )
-                }
-                else -> {
-                    filterListByRatingType(
-                        list.filter { it[position] == if (ratingType == OXYGEN_GENERATOR_RATING) '1' else '0' },
-                        position + 1, ratingType
-                    )
-                }
-            }
+            filterListByRatingType(
+                list.filter {
+                    it[position] == when {
+                        numberOf0Bits > numberOf1Bits -> {
+                            if (ratingType == OXYGEN_GENERATOR_RATING) '0' else '1'
+                        }
+                        else -> {
+                            if (ratingType == OXYGEN_GENERATOR_RATING) '1' else '0'
+                        }
+                    }
+                },
+                position + 1,
+                ratingType
+            )
         }
     }
 }
