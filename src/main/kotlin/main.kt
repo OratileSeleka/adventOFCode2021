@@ -1,9 +1,8 @@
 import day1.SonarSweeps
 import day2.Dive
+import day3.BinaryDiagnostic
 
 fun main(args: Array<String>) {
-    val dive = Dive()
-    val sweeps = SonarSweeps()
-    println("Total is: ${sweeps.numberOfTimesDepthMeasurementIncreases()}")
-    println("Total is: ${dive.calculateProductOFDepthAndPositionWithAim()}")
+    val binaryDiagnostic = BinaryDiagnostic()
+    println(binaryDiagnostic.calculateLifeSupportRatingOfSubmarine())
 }
